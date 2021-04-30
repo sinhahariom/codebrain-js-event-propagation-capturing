@@ -1,14 +1,16 @@
 import './style.css';
 
-document.querySelector('#grandparent').addEventListener("click",()=>{
+document.querySelector('#grandparent').addEventListener("click",(e)=>{
   console.log('GP');
-},true);
+  //e.stopPropagation();
+},false);
 
 document.querySelector('#parent').addEventListener("click",(e)=>{
   console.log('P');
-  e.stopPropagation();
 },true);
 
 document.querySelector('#child').addEventListener("click",()=>{
   console.log('C');
-},true);
+},false);
+
+//Note : Capturing is done first than bubbling in case they are together.
